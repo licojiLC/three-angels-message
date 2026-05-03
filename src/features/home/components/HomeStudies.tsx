@@ -43,7 +43,7 @@ export default function HomeStudies() {
                 </h3>
                 <p className="text-sm leading-relaxed text-[#4A4A4A]"
                   style={{ fontFamily: '"Sora", sans-serif' }}>
-                  {study.excerpt || study.description}
+                  {study.description}
                 </p>
               </div>
             </Link>
