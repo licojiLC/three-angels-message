@@ -3,29 +3,24 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
 }
 
-// ── ARTIGOS DO BLOG ──────────────────────────────────────
 model Article {
-  id          String   @id @default(cuid())
-  slug        String   @unique
+  id          String    @id @default(cuid())
+  slug        String    @unique
   title       String
   excerpt     String?
   content     String
   cover       String?
   category    String?
-  published   Boolean  @default(false)
+  published   Boolean   @default(false)
   publishedAt DateTime?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
   @@map("articles")
 }
 
-// ── LIVROS ───────────────────────────────────────────────
 model Book {
   id          String   @id @default(cuid())
   slug        String   @unique
@@ -38,11 +33,9 @@ model Book {
   published   Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
   @@map("books")
 }
 
-// ── ESTUDOS BÍBLICOS ─────────────────────────────────────
 model Study {
   id          String   @id @default(cuid())
   slug        String   @unique
@@ -54,23 +47,19 @@ model Study {
   published   Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
   @@map("studies")
 }
 
-// ── VERSÍCULO DO DIA ─────────────────────────────────────
 model VerseOfDay {
-  id          String   @id @default(cuid())
-  verseText   String
-  reference   String
-  reflection  String?
-  date        DateTime @unique
-  createdAt   DateTime @default(now())
-
+  id         String   @id @default(cuid())
+  verseText  String
+  reference  String
+  reflection String?
+  date       DateTime @unique
+  createdAt  DateTime @default(now())
   @@map("verse_of_day")
 }
 
-// ── DOWNLOADS ────────────────────────────────────────────
 model Download {
   id          String   @id @default(cuid())
   slug        String   @unique
@@ -83,17 +72,14 @@ model Download {
   published   Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
   @@map("downloads")
 }
 
-// ── NEWSLETTER ───────────────────────────────────────────
 model Subscriber {
   id        String   @id @default(cuid())
   email     String   @unique
   name      String?
   active    Boolean  @default(true)
   createdAt DateTime @default(now())
-
   @@map("subscribers")
 }
