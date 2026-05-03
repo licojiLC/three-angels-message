@@ -16,9 +16,6 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.transparenttextures.com",
       },
-      // Futuramente CDN/S3:
-      // { protocol: "https", hostname: "cdn.threeangelsmessage.com" },
-      // { protocol: "https", hostname: "seu-bucket.s3.amazonaws.com" },
     ],
   },
 };
